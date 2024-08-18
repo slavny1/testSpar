@@ -12,9 +12,11 @@ struct ItemModel {
     
     let name: String
     let country: String?
-    let price: Double
+    let priceRoubles: Int
+    let priceKop: Int
     let dicount: Int?
-    let discountPrice: Double?
+    let discountPriceRoubles: Int?
+    let discountPriceKop: Int?
     let rating: Double
     
     let countType: CountType
@@ -36,7 +38,14 @@ struct ItemModel {
         }
         
         func getLabelColor() -> Color {
-            return .green
+            switch self {
+            case .novinki:
+                return Color.labelBlue90
+            case .udar:
+                return Color.labelRed
+            case .karta:
+                return Color.labelGreen90
+            }
         }
     }
     
@@ -48,9 +57,11 @@ struct ItemModel {
         ItemModel(
             name: "Product name description",
             country: "France",
-            price: 29.99,
+            priceRoubles: 29,
+            priceKop: 99,
             dicount: 25,
-            discountPrice: 23.33,
+            discountPriceRoubles: 23,
+            discountPriceKop: 23,
             rating: 4.6,
             countType: .piece,
             label: .karta
@@ -58,9 +69,11 @@ struct ItemModel {
         ItemModel(
             name: "Product next name description",
             country: nil,
-            price: 109.99,
+            priceRoubles: 109,
+            priceKop: 99,
             dicount: 5,
-            discountPrice: 103.33,
+            discountPriceRoubles: 103,
+            discountPriceKop: 33,
             rating: 4.2,
             countType: .kilo,
             label: .novinki

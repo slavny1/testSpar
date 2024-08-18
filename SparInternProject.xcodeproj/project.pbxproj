@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13C26CBC2C720FD80026322B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C26CBB2C720FD80026322B /* Constants.swift */; };
 		5043F0CD2C70947600CFBA36 /* SparInternProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */; };
 		5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0CE2C70947600CFBA36 /* ContentView.swift */; };
 		5043F0D12C70947700CFBA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5043F0D02C70947700CFBA36 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13C26CBB2C720FD80026322B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5043F0C92C70947600CFBA36 /* SparInternProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparInternProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparInternProjectApp.swift; sourceTree = "<group>"; };
 		5043F0CE2C70947600CFBA36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */,
 				5043F0CE2C70947600CFBA36 /* ContentView.swift */,
 				5043F0DD2C70999900CFBA36 /* ItemCardView.swift */,
+				13C26CBB2C720FD80026322B /* Constants.swift */,
 				5043F0DB2C70965100CFBA36 /* ItemModel.swift */,
 				5043F0D02C70947700CFBA36 /* Assets.xcassets */,
 				5043F0D22C70947700CFBA36 /* SparInternProject.entitlements */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C26CBC2C720FD80026322B /* Constants.swift in Sources */,
 				5043F0DC2C70965100CFBA36 /* ItemModel.swift in Sources */,
 				5043F0DE2C70999900CFBA36 /* ItemCardView.swift in Sources */,
 				5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */,
