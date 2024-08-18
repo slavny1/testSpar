@@ -11,6 +11,8 @@
 		5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0CE2C70947600CFBA36 /* ContentView.swift */; };
 		5043F0D12C70947700CFBA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5043F0D02C70947700CFBA36 /* Assets.xcassets */; };
 		5043F0D52C70947700CFBA36 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5043F0D42C70947700CFBA36 /* Preview Assets.xcassets */; };
+		5043F0DC2C70965100CFBA36 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0DB2C70965100CFBA36 /* ItemModel.swift */; };
+		5043F0DE2C70999900CFBA36 /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0DD2C70999900CFBA36 /* ItemCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		5043F0D02C70947700CFBA36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5043F0D22C70947700CFBA36 /* SparInternProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SparInternProject.entitlements; sourceTree = "<group>"; };
 		5043F0D42C70947700CFBA36 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5043F0DB2C70965100CFBA36 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		5043F0DD2C70999900CFBA36 /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */,
 				5043F0CE2C70947600CFBA36 /* ContentView.swift */,
+				5043F0DD2C70999900CFBA36 /* ItemCardView.swift */,
+				5043F0DB2C70965100CFBA36 /* ItemModel.swift */,
 				5043F0D02C70947700CFBA36 /* Assets.xcassets */,
 				5043F0D22C70947700CFBA36 /* SparInternProject.entitlements */,
 				5043F0D32C70947700CFBA36 /* Preview Content */,
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5043F0DC2C70965100CFBA36 /* ItemModel.swift in Sources */,
+				5043F0DE2C70999900CFBA36 /* ItemCardView.swift in Sources */,
 				5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */,
 				5043F0CD2C70947600CFBA36 /* SparInternProjectApp.swift in Sources */,
 			);
@@ -282,8 +290,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -292,10 +300,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.slavny1.SparInternProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,8 +329,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -330,10 +339,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.slavny1.SparInternProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

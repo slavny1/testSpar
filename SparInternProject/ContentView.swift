@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 8) {
+            ForEach(ItemModel.items, id: \.name) { item in
+                ZStack {
+                    ItemCardView(item: item)
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundStyle(.clear)
+                        .shadow(color:.black, radius: 20, x: 5, y: 5)
+                }
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 20)
+                )
+            }
         }
         .padding()
     }
