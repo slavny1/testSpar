@@ -22,8 +22,13 @@ struct ContentView: View {
                         .clipShape(
                             RoundedRectangle(cornerRadius: 20)
                         )
-                        .shadow(radius: 10)
-                        .frame(maxHeight: 278)
+                        .shadow(radius: isGridViewStyle ? 10 : 0)
+                        .frame(maxHeight: isGridViewStyle ? 278 : 178)
+                    if !isGridViewStyle {
+                        Rectangle()
+                            .foregroundStyle(Color("DividerGray"))
+                            .frame(width: 500, height: 1)
+                    }
                 }
             }
             .padding()
