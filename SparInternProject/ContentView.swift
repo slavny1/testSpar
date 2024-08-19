@@ -12,15 +12,22 @@ struct ContentView: View {
     @State var isGridViewStyle: Bool = true
 
     var body: some View {
-        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 8) {
-            ForEach(ItemModel.items, id: \.name) { item in
-                ItemCardView(item: item)
-                    .clipShape(
-                        RoundedRectangle(cornerRadius: 20)
-                    )
+        ScrollView {
+            LazyVGrid(
+                columns: isGridViewStyle ? [GridItem(), GridItem()] : [GridItem()],
+                spacing: 8
+            ) {
+                ForEach(ItemModel.items, id: \.name) { item in
+                    ItemCardView(isGridViewStyle: isGridViewStyle, item: item)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 20)
+                        )
+                        .shadow(radius: 10)
+                        .frame(maxHeight: 278)
+                }
             }
+            .padding()
         }
-        .padding()
         .toolbar(content: {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {

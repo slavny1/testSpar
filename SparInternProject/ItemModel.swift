@@ -50,7 +50,7 @@ struct ItemModel {
     }
     
     enum CountType {
-        case piece, kilo, both
+        case piece, kilo
     }
     
     static let items = [
@@ -63,7 +63,7 @@ struct ItemModel {
             discountPriceRoubles: 23,
             discountPriceKop: 23,
             rating: 4.6,
-            countType: .piece,
+            countType: .kilo,
             label: .karta
         ),
         ItemModel(
@@ -75,7 +75,19 @@ struct ItemModel {
             discountPriceRoubles: 103,
             discountPriceKop: 33,
             rating: 4.2,
-            countType: .kilo,
+            countType: .piece,
+            label: .novinki
+        ),
+        ItemModel(
+            name: "Product number three name description",
+            country: nil,
+            priceRoubles: 19,
+            priceKop: 19,
+            dicount: 15,
+            discountPriceRoubles: 13,
+            discountPriceKop: 13,
+            rating: 4.9,
+            countType: .piece,
             label: .novinki
         )
     ]
