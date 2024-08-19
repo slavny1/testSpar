@@ -25,97 +25,85 @@ struct ItemCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .fill(.white)
-            VStack(alignment: .leading) {
-                ZStack {
-                    Image("Product1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxHeight: 168)
+            if isGridViewStyle {
+                VStack(alignment: .leading) {
+                    ZStack {
+                        Image("Product1")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 168)
+                        VStack {
+                            HStack(alignment: .top) {
+                                itemLabel
+                                Spacer()
+                                actionList
+                            }
+                            Spacer()
+                            HStack {
+                                rating
+                                Spacer()
+                                discountLabel
+                            }
+                            .padding(.horizontal, 8)
+                        }
+                    }
+                    descriptionAndCountry
+                    Spacer()
+                    if isOrdered {
+                        pickerCountType
+                        quantityButton
+                    } else {
+                        priceAndButton
+                    }
+                }
+            } else {
+                HStack {
+                    ZStack {
+                        Image("Product1")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 144)
+                        VStack() {
+                            HStack {
+                                itemLabel
+                                Spacer()
+                            }
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                discountLabel
+                            }
+                        }
+                    }
+                    .frame(maxWidth: 144, maxHeight: 144)
+                    Spacer()
                     VStack {
-                        HStack(alignment: .top) {
-                            if let label = item.label {
-                                Text(label.getLabelText())
-                                    .font(
-                                        .system(
-                                            size: 10,
-                                            weight: .regular,
-                                            design: .default
-                                        )
-                                    )
-                                    .foregroundStyle(.white)
-                                    .padding(.vertical, 4)
-                                    .padding(.leading, 12)
-                                    .padding(.trailing, 6)
-                                    .background(label.getLabelColor())
-                                    .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomTrailing: 6, topTrailing: 6)))
+                        HStack {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    rating
+                                    Rectangle()
+                                        .frame(width: 1, height: 20)
+                                        .foregroundStyle(Color("DividerGray"))
+                                    feedbackLabel
+                                }
+                                descriptionAndCountry
+                                Spacer()
                             }
                             Spacer()
                             VStack {
-                                Button(action: {
-                                    print("tapped receipt")
-                                }, label: {
-                                    Image("receipt")
-                                })
-                                .padding(.bottom, 8)
-                                Button(action: {
-                                    isFavourite.toggle()
-                                }, label: {
-                                    Image(isFavourite ? "HeartFilled" : "heart")
-                                })
-
+                                actionList
+                                Spacer()
                             }
-                            .padding(8)
-                            .background(Color.white80)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .padding(.top, 4)
-                            .padding(.trailing, 4)
                         }
                         Spacer()
-                        HStack {
-                            Image("star")
-                            Text(String(item.rating))
-                                .font(
-                                    .system(
-                                        size: 12,
-                                        weight: .regular,
-                                        design: .default
-                                    )
-                                )
-                                .padding(.leading, -3)
-                                .foregroundStyle(Color.black80)
-                            Spacer()
-                            if let discount = item.dicount {
-                                Text(String(discount) + "%")
-                                    .font(
-                                        .system(
-                                            size: 16,
-                                            weight: .bold,
-                                            design: .rounded
-                                        )
-                                    )
-                                    .foregroundStyle(Color.darkRed)
-                            }
+                        if isOrdered {
+                            pickerCountType
+                            quantityButton
+                        } else {
+                            priceAndButton
                         }
-                        .padding(.horizontal, 8)
                     }
-                }
-                descriptionAndCountry
-                Spacer()
-                if isOrdered {
-                    Picker("", selection: $quantityType) {
-                        Text("Шт").tag(ItemModel.CountType.piece)
-                        Text("Кг").tag(ItemModel.CountType.kilo)
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(height: 28)
-                    .padding(.horizontal, 8)
-                    quantityButton
-                        .padding(.horizontal, 8)
-                        .padding(.bottom, 8)
-                } else {
-                    priceAndButton
-                        .padding(.horizontal, 8)
-                        .padding(.bottom, 8)
                 }
             }
         }
@@ -125,7 +113,106 @@ struct ItemCardView: View {
         .onChange(of: quantityKilo) { oldValue, newValue in
             pricePerKilo = quantityKilo * Double(item.discountPriceRoubles ?? item.priceRoubles) + quantityKilo * Double(item.discountPriceKop ?? item.priceKop)
         }
+    }
+}
 
+extension ItemCardView {
+
+    var feedbackLabel: some View {
+        Text("\(item.feedbackNumber) reviews")
+            .font(
+                .system(
+                    size: 12,
+                    weight: .regular,
+                    design: .rounded
+                )
+            )
+            .foregroundStyle(Color.textGray60)
+    }
+
+    var discountLabel: some View {
+        HStack {
+            if let discount = item.dicount {
+                Text(String(discount) + "%")
+                    .font(
+                        .system(
+                            size: 16,
+                            weight: .bold,
+                            design: .rounded
+                        )
+                    )
+                    .foregroundStyle(Color.darkRed)
+            }
+        }
+    }
+
+    var itemLabel: some View {
+        HStack {
+            if let label = item.label {
+                Text(label.getLabelText())
+                    .font(
+                        .system(
+                            size: 10,
+                            weight: .regular,
+                            design: .default
+                        )
+                    )
+                    .foregroundStyle(.white)
+                    .padding(.vertical, 4)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 6)
+                    .background(label.getLabelColor())
+                    .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomTrailing: 6, topTrailing: 6)))
+            }
+        }
+    }
+
+    var pickerCountType: some View {
+        Picker("", selection: $quantityType) {
+            Text("Шт").tag(ItemModel.CountType.piece)
+            Text("Кг").tag(ItemModel.CountType.kilo)
+        }
+        .pickerStyle(.segmented)
+        .frame(height: 28)
+        .padding(.horizontal, 8)
+    }
+
+    var rating: some View {
+        HStack {
+            Image("star")
+            Text(String(item.rating))
+                .font(
+                    .system(
+                        size: 12,
+                        weight: .regular,
+                        design: .default
+                    )
+                )
+                .padding(.leading, -3)
+                .foregroundStyle(Color.black80)
+        }
+    }
+
+    var actionList: some View {
+        VStack {
+            Button(action: {
+                print("tapped receipt")
+            }, label: {
+                Image("receipt")
+            })
+            .padding(.bottom, 8)
+            Button(action: {
+                isFavourite.toggle()
+            }, label: {
+                Image(isFavourite ? "HeartFilled" : "heart")
+            })
+
+        }
+        .padding(8)
+        .background(Color.white80)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding(.top, 4)
+        .padding(.trailing, 4)
     }
 
     var descriptionAndCountry: some View {
@@ -211,6 +298,8 @@ struct ItemCardView: View {
         .foregroundStyle(Color.white)
         .frame(height: 36)
         .clipShape(RoundedRectangle(cornerRadius: 40))
+        .padding(.horizontal, 8)
+        .padding(.bottom, 8)
     }
 
     var priceAndButton: some View {
@@ -255,8 +344,8 @@ struct ItemCardView: View {
             Spacer()
             Button(action: {
                 isOrdered.toggle()
-                    quantityKilo += 0.1
-                    quantityPieces += 1
+                quantityKilo += 0.1
+                quantityPieces += 1
             }, label: {
                 Image("Cart")
                     .padding(.horizontal, 16)
@@ -265,16 +354,19 @@ struct ItemCardView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 40))
             })
         }
+        .padding(.horizontal, 8)
+        .padding(.bottom, 8)
     }
 }
 
 #Preview {
-    ItemCardView(isGridViewStyle: true, item: ItemModel.items[0])
-            .frame(width: 168, height: 278)
-            .clipShape(
-                RoundedRectangle(cornerRadius: 20)
-            )
-            .shadow(radius: 10)
-            .frame(maxHeight: 278)
+    ItemCardView(isGridViewStyle: false, item: ItemModel.items[0])
+    //        .frame(width: 168, height: 278)
+        .clipShape(
+            RoundedRectangle(cornerRadius: 20)
+        )
+    //        .shadow(radius: 10)
+    //        .frame(maxHeight: 278)
+        .frame(maxHeight: 144)
 }
 

@@ -18,20 +18,23 @@ struct ContentView: View {
                 spacing: 8
             ) {
                 ForEach(ItemModel.items, id: \.name) { item in
+                    if !isGridViewStyle {
+                        Rectangle()
+                            .foregroundStyle(Color("DividerGray"))
+                            .frame(width: 500, height: 1)
+                            .padding(.vertical, 8)
+                    }
                     ItemCardView(isGridViewStyle: isGridViewStyle, item: item)
                         .clipShape(
                             RoundedRectangle(cornerRadius: 20)
                         )
                         .shadow(radius: isGridViewStyle ? 10 : 0)
-                        .frame(maxHeight: isGridViewStyle ? 278 : 178)
-                    if !isGridViewStyle {
-                        Rectangle()
-                            .foregroundStyle(Color("DividerGray"))
-                            .frame(width: 500, height: 1)
-                    }
+                        .frame(height: isGridViewStyle ? 278 : 144)
+
                 }
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.vertical, isGridViewStyle ? 8 : 0)
         }
         .toolbar(content: {
             ToolbarItem(placement: .topBarLeading) {

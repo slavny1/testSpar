@@ -18,7 +18,8 @@ struct ItemModel {
     let discountPriceRoubles: Int?
     let discountPriceKop: Int?
     let rating: Double
-    
+    let feedbackNumber: Int
+
     let countType: CountType
     
     let label: Label?
@@ -62,7 +63,8 @@ struct ItemModel {
             dicount: 25,
             discountPriceRoubles: 23,
             discountPriceKop: 23,
-            rating: 4.6,
+            rating: 4.6, 
+            feedbackNumber: 1,
             countType: .kilo,
             label: .karta
         ),
@@ -74,7 +76,8 @@ struct ItemModel {
             dicount: 5,
             discountPriceRoubles: 103,
             discountPriceKop: 33,
-            rating: 4.2,
+            rating: 4.2, 
+            feedbackNumber: 19,
             countType: .piece,
             label: .novinki
         ),
@@ -86,7 +89,8 @@ struct ItemModel {
             dicount: 15,
             discountPriceRoubles: 13,
             discountPriceKop: 13,
-            rating: 4.9,
+            rating: 4.9, 
+            feedbackNumber: 0,
             countType: .piece,
             label: .novinki
         )
