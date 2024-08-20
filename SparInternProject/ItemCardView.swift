@@ -62,7 +62,7 @@ struct ItemCardView: View {
                         Image("Product1")
                             .resizable()
                             .scaledToFit()
-                            .frame(maxHeight: 144)
+                            .frame(height: 144)
                         VStack() {
                             HStack {
                                 itemLabel
@@ -75,10 +75,9 @@ struct ItemCardView: View {
                             }
                         }
                     }
-                    .frame(maxWidth: 144, maxHeight: 144)
-                    Spacer()
+                    .frame(width: 144)
                     VStack {
-                        HStack {
+                        HStack(alignment: .top) {
                             VStack(alignment: .leading) {
                                 HStack {
                                     rating
@@ -88,12 +87,10 @@ struct ItemCardView: View {
                                     feedbackLabel
                                 }
                                 descriptionAndCountry
-                                Spacer()
                             }
                             Spacer()
                             VStack {
                                 actionList
-                                Spacer()
                             }
                         }
                         Spacer()
@@ -367,6 +364,6 @@ extension ItemCardView {
         )
     //        .shadow(radius: 10)
     //        .frame(maxHeight: 278)
-        .frame(maxHeight: 144)
+        .frame(height: 150)
 }
 

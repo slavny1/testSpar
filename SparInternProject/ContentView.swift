@@ -29,8 +29,7 @@ struct ContentView: View {
                             RoundedRectangle(cornerRadius: 20)
                         )
                         .shadow(radius: isGridViewStyle ? 10 : 0)
-                        .frame(height: isGridViewStyle ? 278 : 144)
-
+                        .frame(height: isGridViewStyle ? 278 : 150)
                 }
             }
             .padding(.horizontal)
