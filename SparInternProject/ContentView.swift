@@ -8,25 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
+    @State var isGridViewStyle: Bool = true
+
     var body: some View {
-        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 8) {
-            ForEach(ItemModel.items, id: \.name) { item in
-                ZStack {
-                    ItemCardView(item: item)
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundStyle(.clear)
-                        .shadow(color:.black, radius: 20, x: 5, y: 5)
+        ScrollView {
+            LazyVGrid(
+                columns: isGridViewStyle ? [GridItem(), GridItem()] : [GridItem()],
+                spacing: 8
+            ) {
+                ForEach(ItemModel.items, id: \.name) { item in
+                    if !isGridViewStyle {
+                        Rectangle()
+                            .foregroundStyle(Color("DividerGray"))
+                            .frame(width: 500, height: 1)
+                            .padding(.vertical, 8)
+                    }
+                    ItemCardView(isGridViewStyle: isGridViewStyle, item: item)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 20)
+                        )
+                        .shadow(radius: isGridViewStyle ? 10 : 0)
+                        .frame(height: isGridViewStyle ? 278 : 150)
                 }
-                .clipShape(
-                    RoundedRectangle(cornerRadius: 20)
-                )
             }
+            .padding(.horizontal)
+            .padding(.vertical, isGridViewStyle ? 8 : 0)
         }
-        .padding()
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    isGridViewStyle.toggle()
+                }, label: {
+                    Image(isGridViewStyle ? "iconGrid" : "iconList")
+                        .padding(12)
+                        .background(Color.backLightGray)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                })
+            }
+        })
     }
 }
 
 #Preview {
-    ContentView()
+    NavigationStack {
+        ContentView()
+    }
 }

@@ -12,11 +12,14 @@ struct ItemModel {
     
     let name: String
     let country: String?
-    let price: Double
+    let priceRoubles: Int
+    let priceKop: Int
     let dicount: Int?
-    let discountPrice: Double?
+    let discountPriceRoubles: Int?
+    let discountPriceKop: Int?
     let rating: Double
-    
+    let feedbackNumber: Int
+
     let countType: CountType
     
     let label: Label?
@@ -36,33 +39,59 @@ struct ItemModel {
         }
         
         func getLabelColor() -> Color {
-            return .green
+            switch self {
+            case .novinki:
+                return Color.labelBlue90
+            case .udar:
+                return Color.labelRed
+            case .karta:
+                return Color.labelGreen90
+            }
         }
     }
     
     enum CountType {
-        case piece, kilo, both
+        case piece, kilo
     }
     
     static let items = [
         ItemModel(
             name: "Product name description",
             country: "France",
-            price: 29.99,
+            priceRoubles: 29,
+            priceKop: 99,
             dicount: 25,
-            discountPrice: 23.33,
-            rating: 4.6,
-            countType: .piece,
+            discountPriceRoubles: 23,
+            discountPriceKop: 23,
+            rating: 4.6, 
+            feedbackNumber: 1,
+            countType: .kilo,
             label: .karta
         ),
         ItemModel(
             name: "Product next name description",
             country: nil,
-            price: 109.99,
+            priceRoubles: 109,
+            priceKop: 99,
             dicount: 5,
-            discountPrice: 103.33,
-            rating: 4.2,
-            countType: .kilo,
+            discountPriceRoubles: 103,
+            discountPriceKop: 33,
+            rating: 4.2, 
+            feedbackNumber: 19,
+            countType: .piece,
+            label: .novinki
+        ),
+        ItemModel(
+            name: "Product number three name description",
+            country: nil,
+            priceRoubles: 19,
+            priceKop: 19,
+            dicount: 15,
+            discountPriceRoubles: 13,
+            discountPriceKop: 13,
+            rating: 4.9, 
+            feedbackNumber: 0,
+            countType: .piece,
             label: .novinki
         )
     ]
