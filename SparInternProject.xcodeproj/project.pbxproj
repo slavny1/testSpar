@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50056A5E2C7A381600EFC029 /* VodovozView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50056A5D2C7A381600EFC029 /* VodovozView.swift */; };
 		5043F0CD2C70947600CFBA36 /* SparInternProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */; };
 		5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043F0CE2C70947600CFBA36 /* ContentView.swift */; };
 		5043F0D12C70947700CFBA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5043F0D02C70947700CFBA36 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50056A5D2C7A381600EFC029 /* VodovozView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodovozView.swift; sourceTree = "<group>"; };
 		5043F0C92C70947600CFBA36 /* SparInternProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparInternProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparInternProjectApp.swift; sourceTree = "<group>"; };
 		5043F0CE2C70947600CFBA36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				5043F0CC2C70947600CFBA36 /* SparInternProjectApp.swift */,
 				5043F0CE2C70947600CFBA36 /* ContentView.swift */,
+				50056A5D2C7A381600EFC029 /* VodovozView.swift */,
 				5043F0DD2C70999900CFBA36 /* ItemCardView.swift */,
 				5043F0DB2C70965100CFBA36 /* ItemModel.swift */,
 				5043F0D02C70947700CFBA36 /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 				5043F0DC2C70965100CFBA36 /* ItemModel.swift in Sources */,
 				5043F0DE2C70999900CFBA36 /* ItemCardView.swift in Sources */,
 				5043F0CF2C70947600CFBA36 /* ContentView.swift in Sources */,
+				50056A5E2C7A381600EFC029 /* VodovozView.swift in Sources */,
 				5043F0CD2C70947600CFBA36 /* SparInternProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
